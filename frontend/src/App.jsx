@@ -1,8 +1,15 @@
 import { Routes, Route, Router } from 'react-router-dom'; 
+
+// Pages ────────────────────────────────────────────────────────────────────── 
+import Login from './pages/Login'; 
 import Home from './pages/Home'; 
-import About from './pages/About'; 
+import Dashboard from './pages/Dashboard'; 
+import GlobalEvent from './pages/GlobalEvent'; 
 import Contact from './pages/Contact'; 
-import NavigationHeader from './components/NavigationHeader';
+import About from './pages/About'; 
+
+// Components ────────────────────────────────────────────────────────────────────── 
+import NavigationHeader from './components/NavigationHeader'; 
 
 
 
@@ -13,7 +20,10 @@ export default function App() {
         <>
             <NavigationHeader />
             <Routes>
-                <Route path="/" element={ <Home /> } />
+                <Route path="/" element={ <Login /> } />
+                <Route path="/home" element={ <Home /> } />
+                <Route path="/global_event" element={ <GlobalEvent /> } />
+                <Route path="/dashboard" element={ <Dashboard /> } />
                 <Route path="/contact" element={ <Contact /> } />
                 <Route path="/about" element={ <About /> } />
                 <Route path='*' element={ 
