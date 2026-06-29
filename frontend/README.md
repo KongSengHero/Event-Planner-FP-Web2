@@ -1,16 +1,41 @@
-# React + Vite
+# Folder Structure:
+src/
+├── assets/ 
+├── components/ 
+│   ├── Navbar.jsx
+│   ├── EventCard.jsx
+│   └── ProtectedRoute.jsx
+├── context/ 
+│   ├── AuthContext.jsx
+│   └── EventContext.jsx
+├── pages/ 
+│   ├── About.jsx
+│   ├── AllEvents.jsx
+│   ├── Contact.jsx
+│   ├── Dashboard.jsx
+│   ├── Home.jsx
+│   └── Login.jsx
+├── utils/ 
+│   └── helpers.js
+├── App.jsx 
+├── index.css 
+└── main.jsx 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Schema: 
+[ 
+    { 
+        "id": "QUYG1872TSUH98SK", 
+        "userId": "user_12345", 
+        "title": "Project Mooner", 
+        "date": "3037-13-30", 
+        "location": "Mars, Marala, L12P", 
+        "description": "Annual end-of-year awards ceremony for longest breather.", 
+        "budget": 6789, 
+        "attendees": ["John", "BOB", "Thor"], 
+        "tasks": [ 
+            { "id": "1", "stage_text": "This is a stage 1", "isCompleted": true }, 
+            { "id": "2", "stage_text": "And this is stage 2", "isCompleted": false }, 
+            { "id": "3", "stage_text": "More stage that is 3", "isCompleted": false } 
+        ]
+    }
+]
