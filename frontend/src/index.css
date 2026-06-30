@@ -11,6 +11,9 @@
         border: 1px solid white; 
         @apply bg-black/50 -skew-x-12; 
     }
+    .btn {
+        @apply text-black py-1 px-4 rounded-lg hover:bg-gray-200 text-xl bg-white items-center;
+    }
 }
 
 * { 
@@ -18,8 +21,7 @@
     box-sizing: border-box; 
     transition: all 0.3s ease-in-out; 
 }
-body { 
-    padding: 3% 5%; 
+body {
     width: 100vw; height: 100vh; 
     position: relative; 
     background: black; 
