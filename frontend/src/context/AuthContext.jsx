@@ -7,8 +7,11 @@ import React, { createContext, useContext, useEffect, useRef, useState, useSyncE
 
 
 const AuthContext = createContext(null); 
-const getStoredUsers = () => JSON.parse(localStorage.getItem('AUTH_USERS')) || []; 
+const getStoredUsers = () => JSON.parse(localStorage.getItem('AUTH_USERS')) ?? []; 
 const setStoredUsers = (users) => localStorage.setItem('AUTH_USERS', JSON.stringify(users)); 
+
+const getStoredCurrentUser = () => JSON.parse(localStorage.getItem('CURRENT_USER')) ?? null; 
+const setStoredCurrentUser = (user) => localStorage.setItem('CURRENT_USER', JSON.stringify(user)); 
 
 export const useAuth = () => useContext(AuthContext); 
 
@@ -23,6 +26,7 @@ export function AuthProvider({ children }) {
     const [error, setError] = useState(''); 
     const hasRan = useRef(false); 
     
+    // Helper Functions ────────────────────────────────────────────────────────────────────── 
     function helperGenerateRandomId(length = 16) { 
         const chars = `ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`; 
         let result = ''; 
@@ -37,6 +41,7 @@ export function AuthProvider({ children }) {
         setConfirmPassword(''); 
     }
     
+    // Main Functions ────────────────────────────────────────────────────────────────────── 
     function handleCreateAccount() { 
         setError(''); 
         if (!email || !password) return setError('Email and Password are required.'); 
@@ -59,7 +64,7 @@ export function AuthProvider({ children }) {
         users.push(accountPayload); 
         setStoredUsers(users); 
         
-        localStorage.setItem('CURRENT_USER', JSON.stringify(accountPayload)); 
+        setStoredCurrentUser(accountPayload); 
         setUser(accountPayload); 
         resetForms(); 
     }
@@ -75,7 +80,7 @@ export function AuthProvider({ children }) {
         if (!foundUserEmail) return setError('Could not find existing email.'); 
         if (foundUserEmail.password !== password) return setError('Password is incorrect.'); 
         
-        localStorage.setItem('CURRENT_USER', JSON.stringify(foundUserEmail)); 
+        setStoredCurrentUser(foundUserEmail); 
         setUser(foundUserEmail); 
         resetForms(); 
     }
@@ -96,7 +101,7 @@ export function AuthProvider({ children }) {
         const updatedUsersList = users.map(u => u.id === user.id ? updatedUser : u); 
         setStoredUsers(updatedUsersList); 
         
-        localStorage.setItem('CURRENT_USER', JSON.stringify(updatedUser)); 
+        setStoredCurrentUser(updatedUser); 
         setUser(updatedUser); 
     }
     
@@ -111,11 +116,12 @@ export function AuthProvider({ children }) {
         handleSignout(); 
     }
     
+    // Initialize ────────────────────────────────────────────────────────────────────── 
     useEffect(() => { 
         if (hasRan.current) return; 
         hasRan.current = true; 
-        console.log('[Auth] Initialize')
-        setUser(JSON.parse(localStorage.getItem('CURRENT_USER')) ?? null); 
+        console.log('[Auth Context] Initialize')
+        setUser(getStoredCurrentUser()); 
     }, [])
     
     return ( 
