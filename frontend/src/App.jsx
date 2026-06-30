@@ -5,7 +5,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { EventProvider } from './context/EventContext'; 
 
 // Pages ────────────────────────────────────────────────────────────────────── 
-import Login from './pages/Login'; 
+import Login from './Login'; 
 import Home from './pages/Home'; 
 import Dashboard from './pages/Dashboard'; 
 import GlobalEvent from './pages/GlobalEvent'; 

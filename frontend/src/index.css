@@ -16,6 +16,10 @@
     }
 }
 
+@theme {
+    .prime-black { background-color: #0a0a0a; }
+    .prime-white { background-color: #ffffff; }
+}
 * { 
     margin: 0; padding: 0; 
     box-sizing: border-box; 
