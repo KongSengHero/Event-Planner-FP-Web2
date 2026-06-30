@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useRef, useState, useSyncExternalStore } from 'react'; 
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react'; 
 
 
 
@@ -13,6 +13,7 @@ const setStoredUsers = (users) => localStorage.setItem('AUTH_USERS', JSON.string
 const getStoredCurrentUser = () => JSON.parse(localStorage.getItem('CURRENT_USER')) ?? null; 
 const setStoredCurrentUser = (user) => localStorage.setItem('CURRENT_USER', JSON.stringify(user)); 
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext); 
 
 export function AuthProvider({ children }) { 

@@ -94,7 +94,7 @@ export default function Login() {
                                     onClick={() => setShowPassword(!showPassword)}
                                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                                 >
-                                    {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+                                    {showPassword ? <EyeIcon /> : <EyeOffIcon />}
                                 </button>
                             </div>
                         </div>
@@ -160,7 +160,7 @@ export default function Login() {
                                     onClick={() => setShowPassword(!showPassword)}
                                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                                 >
-                                    {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+                                    {showPassword ? <EyeIcon /> : <EyeOffIcon />}
                                 </button>
                             </div>
                         </div>
@@ -182,7 +182,7 @@ export default function Login() {
                                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                                     aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
                                 >
-                                    {showConfirmPassword ? <EyeOffIcon /> : <EyeIcon />}
+                                    {showConfirmPassword ? <EyeIcon /> : <EyeOffIcon />}
                                 </button>
                             </div>
                         </div>

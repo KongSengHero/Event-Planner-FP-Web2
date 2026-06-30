@@ -33,7 +33,7 @@ function ProtectedRoute({ children }) {
 }
 
 function Router() { 
-    const { user, loading } = useAuth(); 
+    const { loading } = useAuth(); 
     
     if (loading) return <Loading />
     
