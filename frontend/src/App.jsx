@@ -39,14 +39,14 @@ function Router() {
     
     return ( 
         <>
-            <NavigationHeader />
+            <NavigationHeader /> {/* UNCOMMENT THIS WHEN DEPLOY */}
             <Routes>
-                <Route path="/"             element={ <GuestRoute> <Login /> </GuestRoute> } />
-                <Route path="/home"         element={ <ProtectedRoute> <Home />         </ProtectedRoute> } />
-                <Route path="/global_event" element={ <ProtectedRoute> <GlobalEvent />  </ProtectedRoute> } />
-                <Route path="/dashboard"    element={ <ProtectedRoute> <Dashboard />    </ProtectedRoute> } />
-                <Route path="/contact"      element={ <ProtectedRoute> <Contact />      </ProtectedRoute> } />
-                <Route path="/about"        element={ <ProtectedRoute> <About />        </ProtectedRoute> } />
+                <Route path="/"             element={ /*<GuestRoute>*/ <Login /> /*{</GuestRoute>*/ } />
+                <Route path="/home"         element={ /*<ProtectedRoute>*/ <Home />         /*{</ProtectedRoute>*/ } />
+                <Route path="/global_event" element={ /*<ProtectedRoute>*/ <GlobalEvent />  /*{</ProtectedRoute>*/ } />
+                <Route path="/dashboard"    element={ /*<ProtectedRoute>*/ <Dashboard />    /*{</ProtectedRoute>*/ } />
+                <Route path="/contact"      element={ /*<ProtectedRoute>*/ <Contact />      /*{</ProtectedRoute>*/ } />
+                <Route path="/about"        element={ /*<ProtectedRoute>*/ <About />        /*{</ProtectedRoute>*/ } />
                 <Route path='*'             element={ 
                     <div className="z-50 fixed inset-0 flex items-center justify-center p-4 bg-neutral-900/95 backdrop-blur-sm text-white">
                         <div className="text-center flex flex-col items-center">
