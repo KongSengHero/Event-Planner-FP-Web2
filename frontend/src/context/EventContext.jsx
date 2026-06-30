@@ -40,7 +40,9 @@ export function EventProvider({ children }) {
         return result; 
     }
     
-    function resetForms() { }
+    function resetForms() { 
+        
+    }
     
     // Main Functions ────────────────────────────────────────────────────────────────────── 
     function handleCreateEvent() { 

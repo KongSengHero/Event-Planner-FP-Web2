@@ -57,10 +57,11 @@ src/
 
 
 # Styling Required (High To Low Priorities): 
-pages/Login.jsx 
-pages/Home.jsx 
-components/NavigationHeader.jsx 
-
-
-
-components/Loading.jsx
+1. pages/Login.jsx 
+2. pages/Home.jsx 
+3. components/NavigationHeader.jsx 
+4. pages/About.jsx 
+5. pages/Contact.jsx 
+6. components/ErrorToast.jsx # This is like when there's error, it will pop up, if you cannot do it, Seng will 
+7. components/Loading.jsx 
+8. components/Profile/jsx # Seng will edit this 
