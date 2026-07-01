@@ -3,6 +3,7 @@ import { FaPlus } from "react-icons/fa";
 import Filter from '../components/Filter';
 import Card from '../components/Card';
 import { useEvent } from '../context/EventContext';
+import { MdSpaceDashboard } from "react-icons/md";
 
 // Dashboard: manage and create events. After clicking create it should display cards of the event that you created.
 
@@ -14,7 +15,7 @@ export default function Dashboard() {
     return (
         <div>
             <div className="mt-10 flex flex-row justify-between items-center px-20">
-                <div className="text-3xl font-semibold">Dashboard</div>
+                <div className="text-3xl font-semibold flex flex-row items-center gap-2 justify-center"><MdSpaceDashboard className='mt-0.5' /> Dashboard</div>
                 <div><button className='btn flex gap-2'><FaPlus className='text-sm' />Create</button></div>
             </div>
             <div>
