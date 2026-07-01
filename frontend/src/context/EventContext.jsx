@@ -1,9 +1,4 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react'; 
-import { useAuth } from './AuthContext'; 
-
-
-
-
 
 
 
@@ -14,10 +9,10 @@ const setStoredGlobalEvent = (events) => localStorage.setItem('GLOBAL_EVENTS', J
 const getStoredMyEvents = () => JSON.parse(localStorage.getItem('MY_EVENTS')) || []; 
 const setStoredMyEvents = (events) => localStorage.setItem('MY_EVENTS', JSON.stringify(events)); 
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useEvent = () => useContext(EventContext); 
 
 export function EventProvider({ children }) { 
-    const { user } = useAuth(); 
     const [globalEvents, setGlobalEvents] = useState([]); 
     const [myEvents, setMyEvents] = useState([]); 
     
@@ -41,12 +36,42 @@ export function EventProvider({ children }) {
     }
     
     function resetForms() { 
-        
+        setTitle('');
+        setDate('');
+        setLocation('');
+        setDescription('');
+        setBudget(0);
+        setStages([]);
     }
     
     // Main Functions ────────────────────────────────────────────────────────────────────── 
-    function handleCreateEvent() { 
-        
+    function handleCreateEvent({ user }) { 
+        setEventError('');
+        if (!user) return setEventError('You must be logged in to create an event.');
+        if (!title || !date) return setEventError('Title and Date are required.');
+
+        const eventPayload = {
+            id: helperGenerateRandomId(),
+            title,
+            date,
+            location,
+            description,
+            budget,
+            stages,
+            host: user.username,
+            host_id: user.id,
+            attendees: [user.id],
+        };
+
+        const updatedGlobal = [...globalEvents, eventPayload];
+        const updatedMy = [...myEvents, eventPayload];
+
+        setStoredGlobalEvent(updatedGlobal);
+        setStoredMyEvents(updatedMy);
+
+        setGlobalEvents(updatedGlobal);
+        setMyEvents(updatedMy);
+        resetForms();
     }
     
     function handleEditEvent() { 
@@ -81,6 +106,7 @@ export function EventProvider({ children }) {
                 myEvents, 
                 title, setTitle, 
                 date, setDate, 
+                location, setLocation,
                 description, setDescription, 
                 budget, setBudget, 
                 stages, setStages, 
